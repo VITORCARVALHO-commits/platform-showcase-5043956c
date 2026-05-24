@@ -1,7 +1,7 @@
 import { useReveal } from "@/hooks/use-reveal";
-import entregadorImg from "@/assets/up-entregador.png";
-import empresasImg from "@/assets/up-empresas.png";
-import clienteImg from "@/assets/up-cliente.jpg";
+import entregadorImg from "@/assets/up-entregador-hero.png";
+import empresasImg from "@/assets/up-empresas-hero.jpg";
+import clienteImg from "@/assets/up-cliente-hero.jpg";
 import { Apple, Play } from "lucide-react";
 
 export const DownloadCTA = () => {
@@ -13,12 +13,12 @@ export const DownloadCTA = () => {
 
       <div className="container relative">
         <div className="reveal text-center max-w-4xl mx-auto text-white">
-          <div className="text-xs font-bold tracking-[0.25em] uppercase opacity-80 mb-4">Disponível agora</div>
+          <div className="text-xs font-bold tracking-[0.25em] uppercase opacity-80 mb-4">Disponível em breve</div>
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.02]">
             Pronto para fazer <span className="italic">acontecer?</span>
           </h2>
           <p className="mt-6 text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
-            Baixe o app que combina com você. Lojista, entregador ou cliente — a UP é para todos.
+            Escolha o app que combina com você. Lojista, entregador ou cliente — a <strong>UP Plataforma</strong> é para todos.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -39,17 +39,18 @@ export const DownloadCTA = () => {
           </div>
         </div>
 
-        <div className="reveal mt-20 grid grid-cols-3 gap-4 md:gap-10 max-w-4xl mx-auto">
+        <div className="reveal mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {[
-            { img: empresasImg, label: "UP Empresas" },
-            { img: entregadorImg, label: "UP Entregador" },
-            { img: clienteImg, label: "UP Cliente" },
+            { img: empresasImg, label: "UP Empresas", sub: "Gestão e vendas" },
+            { img: entregadorImg, label: "UP Entregador", sub: "Ganhos em tempo real" },
+            { img: clienteImg, label: "UP Cliente", sub: "Tudo em um app" },
           ].map((m, i) => (
             <div key={m.label} className="text-center">
-              <div className={`rounded-2xl overflow-hidden shadow-2xl ${i === 1 ? "float-y" : "float-y-delay"}`} style={{ animationDelay: `${i * -1.5}s` }}>
-                <img src={m.img} alt={m.label} className="w-full h-auto" />
+              <div className={`rounded-3xl overflow-hidden shadow-2xl bg-black/20 ${i === 1 ? "float-y" : "float-y-delay"}`} style={{ animationDelay: `${i * -1.5}s` }}>
+                <img src={m.img} alt={m.label} className="w-full h-72 md:h-80 object-cover" />
               </div>
-              <div className="mt-4 font-display font-bold text-white text-sm md:text-base">{m.label}</div>
+              <div className="mt-4 font-display font-bold text-white text-base md:text-lg">{m.label}</div>
+              <div className="text-white/80 text-xs">{m.sub}</div>
             </div>
           ))}
         </div>
