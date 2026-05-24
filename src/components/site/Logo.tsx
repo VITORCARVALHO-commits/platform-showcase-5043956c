@@ -1,13 +1,15 @@
 import logoSrc from "@/assets/up-plataforma-logo.png";
 
-export const Logo = ({ label = "Plataforma", color = "orange" }: { label?: string; color?: "orange" | "blue" }) => (
-  <div className="inline-flex items-center gap-3 font-display font-extrabold">
-    <div className="relative flex h-11 w-11 items-center justify-center rounded-xl overflow-hidden bg-gradient-to-br from-primary to-primary-glow">
-      <img src={logoSrc} alt="UP Plataforma" className="h-11 w-11 object-cover" />
-    </div>
-    <div className="leading-none">
-      <div className="text-2xl tracking-tight">UP</div>
-      <div className={`text-[10px] font-semibold tracking-[0.22em] uppercase mt-1 ${color === "blue" ? "text-secondary" : "text-primary"}`}>{label}</div>
+export const Logo = ({ compact = false }: { compact?: boolean }) => (
+  <div className="inline-flex items-center gap-3">
+    <img
+      src={logoSrc}
+      alt="UP Plataforma"
+      className={`${compact ? "h-9" : "h-12"} w-auto object-contain drop-shadow-[0_4px_18px_hsl(22_100%_55%/0.45)]`}
+    />
+    <div className="leading-none hidden sm:block">
+      <div className="font-display font-extrabold text-xl tracking-tight">UP</div>
+      <div className="text-[10px] font-bold tracking-[0.28em] uppercase mt-1 text-primary">Plataforma</div>
     </div>
   </div>
 );
