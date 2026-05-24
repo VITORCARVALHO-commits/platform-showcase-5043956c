@@ -5,7 +5,7 @@ export const Footer = () => (
   <footer className="border-t border-border bg-[hsl(0_0%_3%)] py-12">
     <div className="container grid md:grid-cols-4 gap-10">
       <div className="md:col-span-2">
-        <Logo label="Plataforma" />
+        <Logo />
         <p className="mt-4 text-sm text-muted-foreground max-w-sm">
           A plataforma completa que conecta empresas, entregadores e clientes em um só ecossistema.
         </p>
