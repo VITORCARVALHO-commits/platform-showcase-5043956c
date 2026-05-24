@@ -14,10 +14,12 @@ type Props = {
   variant: "blue-light" | "dark-orange" | "orange";
   reverse?: boolean;
   cta?: string;
+  /** When true the marketing image already contains its own background — render flat without phone frame */
+  flatImage?: boolean;
 };
 
 export const AppShowcase = ({
-  id, eyebrow, title, description, features, image, imageAlt, variant, reverse, cta = "Conhecer",
+  id, eyebrow, title, description, features, image, imageAlt, variant, reverse, cta = "Conhecer", flatImage,
 }: Props) => {
   const ref = useReveal<HTMLElement>();
 
@@ -27,7 +29,7 @@ export const AppShowcase = ({
       eyebrow: "text-secondary",
       glow: "bg-blue-radial",
       btn: "bg-gradient-to-r from-secondary to-secondary-glow text-secondary-foreground",
-      shadow: "glow-blue",
+      shadow: "shadow-[0_30px_80px_-20px_hsl(222_89%_55%/0.35)]",
       check: "text-secondary",
       muted: "text-[hsl(215_16%_40%)]",
     },
@@ -36,7 +38,7 @@ export const AppShowcase = ({
       eyebrow: "text-primary",
       glow: "bg-orange-radial",
       btn: "bg-gradient-to-r from-primary to-primary-glow text-primary-foreground",
-      shadow: "glow-orange",
+      shadow: "shadow-[0_30px_80px_-20px_hsl(22_100%_55%/0.45)]",
       check: "text-primary",
       muted: "text-muted-foreground",
     },
@@ -73,7 +75,7 @@ export const AppShowcase = ({
         </div>
 
         <div className="reveal relative">
-          <div className={`relative rounded-[2rem] overflow-hidden ${styles.shadow}`}>
+          <div className={`relative rounded-[2rem] overflow-hidden ${styles.shadow} ${flatImage ? "" : "p-0"}`}>
             <img src={image} alt={imageAlt} className="w-full h-auto float-y" />
           </div>
         </div>
