@@ -14,14 +14,14 @@ export const BusinessTeaser = () => {
 
         <div className="container relative h-full flex items-center">
           <div className="reveal max-w-2xl">
-            <div className="text-xs font-bold tracking-[0.25em] uppercase text-primary mb-4">Para quem empreende</div>
+            <div className="text-xs font-bold tracking-[0.25em] uppercase text-primary mb-4">UP Plataforma · Para quem empreende</div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05]">
               Sua cozinha lotada. <br />
-              <span className="text-gradient-orange">Sua agenda no controle.</span>
+              <span className="text-gradient-orange">Sua operação no controle.</span>
             </h2>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-              Restaurantes, açougues, mercados, farmácias, lojas — qualquer negócio pode escalar pedidos com a UP.
-              Tecnologia que trabalha por você enquanto você foca em vender mais.
+              Restaurantes, açougues, mercados, farmácias, lojas — qualquer negócio escala pedidos dentro da
+              <strong className="text-foreground"> UP Plataforma</strong>. Uma só tecnologia conectando você, sua equipe, entregadores e clientes.
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg">
