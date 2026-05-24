@@ -6,18 +6,22 @@ import { HowItWorks } from "@/components/site/HowItWorks";
 import { DownloadCTA } from "@/components/site/DownloadCTA";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
-import empresasImg from "@/assets/up-empresas.png";
-import entregadorScreens from "@/assets/up-entregador-screens.png";
-import clienteImg from "@/assets/up-cliente.jpg";
+import { BusinessTeaser } from "@/components/site/BusinessTeaser";
+import empresasImg from "@/assets/up-empresas-hero.jpg";
+import entregadorImg from "@/assets/up-entregador-hero.png";
+import clienteImg from "@/assets/up-cliente-hero.jpg";
 import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "UP Plataforma — O ecossistema que faz acontecer";
-    const meta = document.querySelector('meta[name="description"]') || document.createElement("meta");
-    meta.setAttribute("name", "description");
-    meta.setAttribute("content", "Plataforma UP: 3 apps integrados — Empresas, Entregador e Cliente. Mais vendas, mais entregas, mais controle do pedido até a porta.");
-    document.head.appendChild(meta);
+    document.title = "UP Plataforma — A nova era do delivery";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "description");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", "UP Plataforma: 3 apps integrados — Empresas, Entregador e Cliente. Mais vendas, mais entregas, mais controle do pedido até a porta.");
   }, []);
 
   return (
@@ -28,53 +32,58 @@ const Index = () => {
       <AppShowcase
         id="empresas"
         eyebrow="UP Empresas"
-        title={<>O controle que <span className="text-gradient-blue">todo negócio precisa.</span></>}
-        description="Seja qual for o seu negócio, nosso app ajuda você a vender mais e ter tudo sob controle."
+        title={<>Gerencie pedidos <span className="text-gradient-blue">em tempo real.</span></>}
+        description="O app gratuito que coloca o seu negócio no controle. Acompanhe cada pedido do início ao fim e entregue mais com organização e agilidade."
         features={[
-          "Restaurantes, açougues, mercados e lojas em geral",
-          "Organize pedidos e controle entregas",
-          "Cadastro de produtos rápido e fácil",
-          "Dados protegidos e na nuvem",
+          "Fila de pedidos atualizada ao vivo",
+          "Status claros em cada etapa do pedido",
+          "Alertas instantâneos para novos pedidos",
+          "Financeiro e relatórios completos",
         ]}
         image={empresasImg}
-        imageAlt="App UP Empresas"
+        imageAlt="UP Empresas — Gerencie pedidos em tempo real"
         variant="blue-light"
         cta="Começar grátis"
+        flatImage
       />
+
+      <BusinessTeaser />
 
       <AppShowcase
         id="entregador"
         eyebrow="UP Entregador"
-        title={<>Ganhe mais com <span className="text-gradient-orange">pedidos próximos.</span></>}
-        description="Fique online e receba entregas em tempo real. Trabalhe no seu ritmo e acompanhe seus ganhos com clareza."
+        title={<>Seu app de <span className="text-gradient-orange">entregas e ganhos.</span></>}
+        description="Mais controle, mais ganhos, mais liberdade. Fique online e receba entregas em tempo real, no seu ritmo."
         features={[
-          "Pedidos próximos no mapa em tempo real",
-          "Saldo da semana, mês e total no app",
-          "Online ou offline, você decide",
-          "Experiência simples, rápida e eficiente",
+          "Receba pedidos em tempo real no mapa",
+          "Acompanhe seus ganhos da semana, mês e total",
+          "Online ou offline — você decide quando trabalhar",
+          "Fique por dentro de tudo com alertas inteligentes",
         ]}
-        image={entregadorScreens}
-        imageAlt="App UP Entregador — telas"
+        image={entregadorImg}
+        imageAlt="UP Entregador — Seu app de entregas e ganhos"
         variant="dark-orange"
         reverse
-        cta="Começar a entregar"
+        cta="Quero começar a entregar"
+        flatImage
       />
 
       <AppShowcase
         id="cliente"
         eyebrow="UP Cliente"
-        title={<>Tudo que você precisa em <em>um só app.</em></>}
-        description="Delivery rápido, mercado, restaurantes e muito mais — pague de forma segura e acompanhe em tempo real."
+        title={<>Peça tudo em <em>um só lugar.</em></>}
+        description="Comida, mercado, farmácia e muito mais perto de você. Pagamento seguro, entrega rápida e rastreio em tempo real."
         features={[
-          "Delivery rápido na sua casa",
-          "Mercado, restaurantes e muito mais",
-          "Pagamento seguro e facilitado",
-          "Rastreio do pedido em tempo real",
+          "Comida, lojas, mercado e entrega rápida",
+          "Top lojas e cardápios completos no app",
+          "Pagamento 100% seguro",
+          "Acompanhe o pedido em tempo real até a porta",
         ]}
         image={clienteImg}
-        imageAlt="App UP Cliente"
+        imageAlt="UP Cliente — Peça tudo em um só lugar"
         variant="orange"
-        cta="Pedir agora"
+        cta="Quero pedir agora"
+        flatImage
       />
 
       <Features />
