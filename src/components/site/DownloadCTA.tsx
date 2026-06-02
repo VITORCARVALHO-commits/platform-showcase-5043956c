@@ -1,8 +1,32 @@
 import { useReveal } from "@/hooks/use-reveal";
-import entregadorImg from "@/assets/up-entregador-hero.png";
-import empresasImg from "@/assets/up-empresas-hero.jpg";
-import clienteImg from "@/assets/up-cliente-hero.jpg";
 import { Apple, Play } from "lucide-react";
+import iconEntregador from "@/assets/up-icon-main.png.asset.json";
+import iconEmpresas from "@/assets/up-icon-empresas.png.asset.json";
+import iconCliente from "@/assets/up-icon-cliente.png.asset.json";
+
+const apps = [
+  {
+    name: "UP Empresas",
+    sub: "Gestão e vendas para lojistas",
+    icon: iconEmpresas.url,
+    ios: "https://apps.apple.com/gb/app/up-empresas/id6763678690",
+    accent: "from-[hsl(218_82%_54%)] to-[hsl(222_47%_15%)]",
+  },
+  {
+    name: "UP Entregador",
+    sub: "Mais entregas. Mais ganhos.",
+    icon: iconEntregador.url,
+    ios: "https://apps.apple.com/gb/app/up-entregador/id6763692140",
+    accent: "from-[hsl(22_100%_55%)] to-[hsl(14_100%_45%)]",
+  },
+  {
+    name: "UP Cliente",
+    sub: "Seu delivery do seu jeito",
+    icon: iconCliente.url,
+    ios: "https://apps.apple.com/gb/app/up-cliente/id6763890851",
+    accent: "from-[hsl(22_100%_55%)] to-[hsl(28_100%_60%)]",
+  },
+];
 
 export const DownloadCTA = () => {
   const ref = useReveal<HTMLElement>();
@@ -13,44 +37,46 @@ export const DownloadCTA = () => {
 
       <div className="container relative">
         <div className="reveal text-center max-w-4xl mx-auto text-white">
-          <div className="text-xs font-bold tracking-[0.25em] uppercase opacity-80 mb-4">Disponível em breve</div>
+          <div className="text-xs font-bold tracking-[0.25em] uppercase opacity-80 mb-4">Baixe agora</div>
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.02]">
             Pronto para fazer <span className="italic">acontecer?</span>
           </h2>
           <p className="mt-6 text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
             Escolha o app que combina com você. Lojista, entregador ou cliente — a <strong>UP Plataforma</strong> é para todos.
           </p>
-
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a href="#" className="inline-flex items-center gap-3 rounded-2xl bg-black px-7 py-4 text-white shimmer hover:scale-105 transition-transform">
-              <Apple className="h-7 w-7" />
-              <div className="text-left">
-                <div className="text-[10px] uppercase tracking-wider opacity-70">Disponível na</div>
-                <div className="font-semibold text-lg leading-none">App Store</div>
-              </div>
-            </a>
-            <a href="#" className="inline-flex items-center gap-3 rounded-2xl bg-black px-7 py-4 text-white shimmer hover:scale-105 transition-transform">
-              <Play className="h-7 w-7 fill-white" />
-              <div className="text-left">
-                <div className="text-[10px] uppercase tracking-wider opacity-70">Disponível no</div>
-                <div className="font-semibold text-lg leading-none">Google Play</div>
-              </div>
-            </a>
-          </div>
         </div>
 
-        <div className="reveal mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {[
-            { img: empresasImg, label: "UP Empresas", sub: "Gestão e vendas" },
-            { img: entregadorImg, label: "UP Entregador", sub: "Ganhos em tempo real" },
-            { img: clienteImg, label: "UP Cliente", sub: "Tudo em um app" },
-          ].map((m, i) => (
-            <div key={m.label} className="text-center">
-              <div className={`rounded-3xl overflow-hidden shadow-2xl bg-black/20 ${i === 1 ? "float-y" : "float-y-delay"}`} style={{ animationDelay: `${i * -1.5}s` }}>
-                <img src={m.img} alt={m.label} className="w-full h-72 md:h-80 object-cover" />
+        <div className="reveal mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {apps.map((a, i) => (
+            <div
+              key={a.name}
+              className={`group rounded-3xl bg-gradient-to-br ${a.accent} p-8 shadow-2xl hover:scale-[1.02] transition-transform ${i === 1 ? "md:-translate-y-4" : ""}`}
+            >
+              <div className="flex items-center gap-4">
+                <img src={a.icon} alt={a.name} className="h-20 w-20 rounded-2xl shadow-xl object-cover" />
+                <div className="text-white">
+                  <div className="font-display font-extrabold text-2xl leading-none">{a.name}</div>
+                  <div className="text-sm opacity-90 mt-1">{a.sub}</div>
+                </div>
               </div>
-              <div className="mt-4 font-display font-bold text-white text-base md:text-lg">{m.label}</div>
-              <div className="text-white/80 text-xs">{m.sub}</div>
+
+              <div className="mt-8 flex flex-col gap-3">
+                <a href={a.ios} target="_blank" rel="noreferrer"
+                   className="inline-flex items-center gap-3 rounded-2xl bg-black px-5 py-3 text-white hover:bg-black/80 transition-colors">
+                  <Apple className="h-6 w-6" />
+                  <div className="text-left">
+                    <div className="text-[10px] uppercase tracking-wider opacity-70">Baixar na</div>
+                    <div className="font-semibold leading-none">App Store</div>
+                  </div>
+                </a>
+                <a href="#" className="inline-flex items-center gap-3 rounded-2xl bg-black/40 backdrop-blur px-5 py-3 text-white border border-white/20">
+                  <Play className="h-6 w-6 fill-white" />
+                  <div className="text-left">
+                    <div className="text-[10px] uppercase tracking-wider opacity-70">Em breve no</div>
+                    <div className="font-semibold leading-none">Google Play</div>
+                  </div>
+                </a>
+              </div>
             </div>
           ))}
         </div>

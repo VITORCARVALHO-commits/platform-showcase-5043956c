@@ -7,21 +7,22 @@ import { DownloadCTA } from "@/components/site/DownloadCTA";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { BusinessTeaser } from "@/components/site/BusinessTeaser";
-import empresasImg from "@/assets/up-empresas-hero.jpg";
-import entregadorImg from "@/assets/up-entregador-hero.png";
-import clienteImg from "@/assets/up-cliente-hero.jpg";
+import { EntregadorGallery } from "@/components/site/EntregadorGallery";
+import empresasBanner from "@/assets/up-empresas-banner.jpg.asset.json";
+import entregadorBanner from "@/assets/up-entregador-banner.jpg.asset.json";
+import clienteBanner from "@/assets/up-cliente-banner.jpg.asset.json";
 import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "UP Plataforma — A nova era do delivery";
+    document.title = "UP Plataforma — Delivery completo: Empresas, Entregador e Cliente";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
       meta.setAttribute("name", "description");
       document.head.appendChild(meta);
     }
-    meta.setAttribute("content", "UP Plataforma: 3 apps integrados — Empresas, Entregador e Cliente. Mais vendas, mais entregas, mais controle do pedido até a porta.");
+    meta.setAttribute("content", "UP Plataforma: 3 apps integrados — Empresas, Entregador e Cliente. Gestão completa, entregas em tempo real e delivery do seu jeito. Goiânia · Brasil.");
   }, []);
 
   return (
@@ -32,18 +33,18 @@ const Index = () => {
       <AppShowcase
         id="empresas"
         eyebrow="UP Empresas"
-        title={<>Gerencie pedidos <span className="text-gradient-blue">em tempo real.</span></>}
-        description="O app gratuito que coloca o seu negócio no controle. Acompanhe cada pedido do início ao fim e entregue mais com organização e agilidade."
+        title={<>Gestão completa para o <span className="text-gradient-blue">crescimento do seu negócio.</span></>}
+        description="Pedidos em tempo real, financeiro inteligente e relatórios completos. Tudo o que sua empresa precisa em um só app."
         features={[
-          "Fila de pedidos atualizada ao vivo",
-          "Status claros em cada etapa do pedido",
-          "Alertas instantâneos para novos pedidos",
-          "Financeiro e relatórios completos",
+          "Pedidos em tempo real, ao vivo",
+          "Lojas e restaurantes em um painel",
+          "Financeiro inteligente com receita estimada",
+          "Relatórios e métricas para decisões melhores",
         ]}
-        image={empresasImg}
-        imageAlt="UP Empresas — Gerencie pedidos em tempo real"
+        image={empresasBanner.url}
+        imageAlt="UP Empresas — Gestão completa para o crescimento do seu negócio"
         variant="blue-light"
-        cta="Começar grátis"
+        cta="Baixar UP Empresas"
         flatImage
       />
 
@@ -52,37 +53,39 @@ const Index = () => {
       <AppShowcase
         id="entregador"
         eyebrow="UP Entregador"
-        title={<>Seu app de <span className="text-gradient-orange">entregas e ganhos.</span></>}
-        description="Mais controle, mais ganhos, mais liberdade. Fique online e receba entregas em tempo real, no seu ritmo."
+        title={<>Mais entregas. <span className="text-gradient-orange">Mais ganhos.</span></>}
+        description="Seu app de entregas com mais controle e mais resultados. Mapa inteligente, ganhos em tempo real e alertas inteligentes."
         features={[
-          "Receba pedidos em tempo real no mapa",
-          "Acompanhe seus ganhos da semana, mês e total",
-          "Online ou offline — você decide quando trabalhar",
-          "Fique por dentro de tudo com alertas inteligentes",
+          "Navegação otimizada com mapa inteligente",
+          "Pedidos organizados na palma da mão",
+          "Ganhos diários, semanais e mensais",
+          "Alertas e notificações que não deixam você perder oportunidade",
         ]}
-        image={entregadorImg}
-        imageAlt="UP Entregador — Seu app de entregas e ganhos"
+        image={entregadorBanner.url}
+        imageAlt="UP Entregador — Mais entregas, mais ganhos"
         variant="dark-orange"
         reverse
-        cta="Quero começar a entregar"
+        cta="Baixar UP Entregador"
         flatImage
       />
+
+      <EntregadorGallery />
 
       <AppShowcase
         id="cliente"
         eyebrow="UP Cliente"
-        title={<>Peça tudo em <em>um só lugar.</em></>}
-        description="Comida, mercado, farmácia e muito mais perto de você. Pagamento seguro, entrega rápida e rastreio em tempo real."
+        title={<>Seu delivery <em>do seu jeito.</em></>}
+        description="Peça nos melhores restaurantes, mercados e farmácias — e receba onde estiver. Pagamento seguro, rastreio em tempo real e Clube de Pontos."
         features={[
-          "Comida, lojas, mercado e entrega rápida",
-          "Top lojas e cardápios completos no app",
-          "Pagamento 100% seguro",
-          "Acompanhe o pedido em tempo real até a porta",
+          "Restaurantes, mercados, farmácias e muito mais",
+          "Acompanhe em tempo real cada etapa do pedido",
+          "Clube de Pontos: acumule e ganhe benefícios exclusivos",
+          "Entrega rápida com mais agilidade e segurança",
         ]}
-        image={clienteImg}
-        imageAlt="UP Cliente — Peça tudo em um só lugar"
+        image={clienteBanner.url}
+        imageAlt="UP Cliente — Seu delivery do seu jeito"
         variant="orange"
-        cta="Quero pedir agora"
+        cta="Baixar UP Cliente"
         flatImage
       />
 

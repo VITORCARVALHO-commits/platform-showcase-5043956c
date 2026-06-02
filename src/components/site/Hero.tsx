@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
-import logoSrc from "@/assets/up-plataforma-logo.png";
+import logoAsset from "@/assets/up-icon-main.png.asset.json";
 import entregadorImg from "@/assets/up-entregador-hero.png";
 import empresasImg from "@/assets/up-empresas-hero.jpg";
 import clienteImg from "@/assets/up-cliente-hero.jpg";
@@ -36,9 +36,9 @@ export const Hero = () => {
           {/* Big logo */}
           <div className="inline-flex flex-col items-center gap-4 mb-8">
             <img
-              src={logoSrc}
+              src={logoAsset.url}
               alt="UP Plataforma"
-              className="h-28 md:h-36 w-auto object-contain float-y drop-shadow-[0_20px_60px_hsl(22_100%_55%/0.55)]"
+              className="h-32 md:h-40 w-auto rounded-3xl object-contain float-y drop-shadow-[0_20px_60px_hsl(22_100%_55%/0.55)]"
             />
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 backdrop-blur px-4 py-1.5 text-xs font-semibold text-primary">
               <Sparkles className="h-3.5 w-3.5" />
