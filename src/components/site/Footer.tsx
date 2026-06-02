@@ -1,5 +1,5 @@
 import { Logo } from "./Logo";
-import { Instagram, Linkedin, Facebook } from "lucide-react";
+import { Instagram, Mail, MessageCircle } from "lucide-react";
 
 export const Footer = () => (
   <footer className="border-t border-border bg-[hsl(0_0%_3%)] py-12">
@@ -14,10 +14,10 @@ export const Footer = () => (
             <Instagram className="h-4 w-4" />
           </a>
           <a href="mailto:upaplicativo@outlook.com" aria-label="Email" className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:border-primary hover:text-primary transition-colors">
-            <Linkedin className="h-4 w-4" />
+            <Mail className="h-4 w-4" />
           </a>
           <a href="https://wa.me/5562984528435" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:border-primary hover:text-primary transition-colors">
-            <Facebook className="h-4 w-4" />
+            <MessageCircle className="h-4 w-4" />
           </a>
         </div>
         <div className="mt-4 text-xs text-muted-foreground space-y-1">

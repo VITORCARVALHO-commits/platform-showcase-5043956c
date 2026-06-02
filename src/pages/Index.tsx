@@ -1,16 +1,16 @@
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { AppShowcase } from "@/components/site/AppShowcase";
-import { Features } from "@/components/site/Features";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { DownloadCTA } from "@/components/site/DownloadCTA";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
-import { BusinessTeaser } from "@/components/site/BusinessTeaser";
 import { EntregadorGallery } from "@/components/site/EntregadorGallery";
 import empresasBanner from "@/assets/up-empresas-banner.jpg.asset.json";
 import entregadorBanner from "@/assets/up-entregador-banner.jpg.asset.json";
 import clienteBanner from "@/assets/up-cliente-banner.jpg.asset.json";
+import iconEmpresas from "@/assets/up-icon-empresas.png.asset.json";
+import iconCliente from "@/assets/up-icon-cliente.png.asset.json";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -33,6 +33,7 @@ const Index = () => {
       <AppShowcase
         id="empresas"
         eyebrow="UP Empresas"
+        appIcon={iconEmpresas.url}
         title={<>Gestão completa para o <span className="text-gradient-blue">crescimento do seu negócio.</span></>}
         description="Pedidos em tempo real, financeiro inteligente e relatórios completos. Tudo o que sua empresa precisa em um só app."
         features={[
@@ -42,13 +43,11 @@ const Index = () => {
           "Relatórios e métricas para decisões melhores",
         ]}
         image={empresasBanner.url}
-        imageAlt="UP Empresas — Gestão completa para o crescimento do seu negócio"
+        imageAlt="UP Empresas"
         variant="blue-light"
         cta="Baixar UP Empresas"
-        flatImage
+        href="https://apps.apple.com/gb/app/up-empresas/id6763678690"
       />
-
-      <BusinessTeaser />
 
       <AppShowcase
         id="entregador"
@@ -59,14 +58,14 @@ const Index = () => {
           "Navegação otimizada com mapa inteligente",
           "Pedidos organizados na palma da mão",
           "Ganhos diários, semanais e mensais",
-          "Alertas e notificações que não deixam você perder oportunidade",
+          "Alertas para nunca perder uma corrida",
         ]}
         image={entregadorBanner.url}
-        imageAlt="UP Entregador — Mais entregas, mais ganhos"
+        imageAlt="UP Entregador"
         variant="dark-orange"
         reverse
         cta="Baixar UP Entregador"
-        flatImage
+        href="https://apps.apple.com/gb/app/up-entregador/id6763692140"
       />
 
       <EntregadorGallery />
@@ -74,22 +73,22 @@ const Index = () => {
       <AppShowcase
         id="cliente"
         eyebrow="UP Cliente"
+        appIcon={iconCliente.url}
         title={<>Seu delivery <em>do seu jeito.</em></>}
         description="Peça nos melhores restaurantes, mercados e farmácias — e receba onde estiver. Pagamento seguro, rastreio em tempo real e Clube de Pontos."
         features={[
           "Restaurantes, mercados, farmácias e muito mais",
-          "Acompanhe em tempo real cada etapa do pedido",
-          "Clube de Pontos: acumule e ganhe benefícios exclusivos",
-          "Entrega rápida com mais agilidade e segurança",
+          "Acompanhe em tempo real cada etapa",
+          "Clube de Pontos com benefícios exclusivos",
+          "Entrega rápida, ágil e segura",
         ]}
         image={clienteBanner.url}
-        imageAlt="UP Cliente — Seu delivery do seu jeito"
+        imageAlt="UP Cliente"
         variant="orange"
         cta="Baixar UP Cliente"
-        flatImage
+        href="https://apps.apple.com/gb/app/up-cliente/id6763890851"
       />
 
-      <Features />
       <HowItWorks />
       <DownloadCTA />
       <Contact />
