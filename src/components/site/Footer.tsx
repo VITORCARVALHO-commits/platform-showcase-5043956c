@@ -10,11 +10,19 @@ export const Footer = () => (
           A plataforma completa que conecta empresas, entregadores e clientes em um só ecossistema.
         </p>
         <div className="mt-6 flex gap-3">
-          {[Instagram, Linkedin, Facebook].map((Icon, i) => (
-            <a key={i} href="#" className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:border-primary hover:text-primary transition-colors">
-              <Icon className="h-4 w-4" />
-            </a>
-          ))}
+          <a href="https://www.instagram.com/upplataformabr" target="_blank" rel="noreferrer" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:border-primary hover:text-primary transition-colors">
+            <Instagram className="h-4 w-4" />
+          </a>
+          <a href="mailto:upaplicativo@outlook.com" aria-label="Email" className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:border-primary hover:text-primary transition-colors">
+            <Linkedin className="h-4 w-4" />
+          </a>
+          <a href="https://wa.me/5562984528435" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:border-primary hover:text-primary transition-colors">
+            <Facebook className="h-4 w-4" />
+          </a>
+        </div>
+        <div className="mt-4 text-xs text-muted-foreground space-y-1">
+          <div>upaplicativo@outlook.com · +55 (62) 98452-8435</div>
+          <div>Goiânia · Goiás · Brasil</div>
         </div>
       </div>
       <div>
