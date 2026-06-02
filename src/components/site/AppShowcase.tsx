@@ -14,12 +14,12 @@ type Props = {
   variant: "blue-light" | "dark-orange" | "orange";
   reverse?: boolean;
   cta?: string;
-  /** When true the marketing image already contains its own background — render flat without phone frame */
-  flatImage?: boolean;
+  appIcon?: string;
+  href?: string;
 };
 
 export const AppShowcase = ({
-  id, eyebrow, title, description, features, image, imageAlt, variant, reverse, cta = "Conhecer", flatImage,
+  id, eyebrow, title, description, features, image, imageAlt, variant, reverse, cta = "Conhecer", appIcon, href = "#download",
 }: Props) => {
   const ref = useReveal<HTMLElement>();
 
@@ -27,16 +27,14 @@ export const AppShowcase = ({
     "blue-light": {
       bg: "bg-[hsl(210_30%_97%)] text-[hsl(222_47%_15%)]",
       eyebrow: "text-secondary",
-      glow: "bg-blue-radial",
       btn: "bg-gradient-to-r from-secondary to-secondary-glow text-secondary-foreground",
       shadow: "shadow-[0_30px_80px_-20px_hsl(222_89%_55%/0.35)]",
       check: "text-secondary",
       muted: "text-[hsl(215_16%_40%)]",
     },
     "dark-orange": {
-      bg: "bg-[hsl(0_0%_3%)] text-foreground",
+      bg: "bg-[hsl(0_0%_4%)] text-foreground",
       eyebrow: "text-primary",
-      glow: "bg-orange-radial",
       btn: "bg-gradient-to-r from-primary to-primary-glow text-primary-foreground",
       shadow: "shadow-[0_30px_80px_-20px_hsl(22_100%_55%/0.45)]",
       check: "text-primary",
@@ -45,7 +43,6 @@ export const AppShowcase = ({
     orange: {
       bg: "bg-gradient-to-br from-[hsl(22_100%_55%)] to-[hsl(14_100%_45%)] text-white",
       eyebrow: "text-white/90",
-      glow: "",
       btn: "bg-white text-[hsl(22_100%_45%)] hover:bg-white/90",
       shadow: "shadow-2xl",
       check: "text-white",
@@ -54,14 +51,18 @@ export const AppShowcase = ({
   }[variant];
 
   return (
-    <section id={id} ref={ref} className={`relative overflow-hidden py-28 ${styles.bg}`}>
-      {styles.glow && <div className={`absolute -top-20 ${reverse ? "right-0" : "left-0"} h-[80%] w-[60%] ${styles.glow} opacity-70`} />}
-      <div className={`container relative grid lg:grid-cols-2 gap-16 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
+    <section id={id} ref={ref} className={`relative overflow-hidden py-24 md:py-28 ${styles.bg}`}>
+      <div className={`container relative grid lg:grid-cols-2 gap-14 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
         <div className="reveal">
-          <div className={`text-xs font-bold tracking-[0.25em] uppercase ${styles.eyebrow} mb-4`}>{eyebrow}</div>
+          <div className="flex items-center gap-3 mb-5">
+            {appIcon && (
+              <img src={appIcon} alt="" className="h-11 w-11 rounded-xl object-cover shadow-lg" />
+            )}
+            <div className={`text-xs font-bold tracking-[0.25em] uppercase ${styles.eyebrow}`}>{eyebrow}</div>
+          </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05]">{title}</h2>
           <p className={`mt-5 text-lg max-w-xl ${styles.muted}`}>{description}</p>
-          <ul className="mt-8 space-y-3">
+          <ul className="mt-7 space-y-3">
             {features.map((f) => (
               <li key={f} className="flex items-start gap-3">
                 <Check className={`mt-1 h-5 w-5 flex-shrink-0 ${styles.check}`} strokeWidth={3} />
@@ -69,14 +70,14 @@ export const AppShowcase = ({
               </li>
             ))}
           </ul>
-          <Button asChild size="lg" className={`mt-10 h-13 px-8 ${styles.btn} shimmer`}>
-            <a href="#download">{cta}</a>
+          <Button asChild size="lg" className={`mt-9 h-13 px-8 ${styles.btn} shimmer`}>
+            <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">{cta}</a>
           </Button>
         </div>
 
         <div className="reveal relative">
-          <div className={`relative rounded-[2rem] overflow-hidden ${styles.shadow} ${flatImage ? "" : "p-0"}`}>
-            <img src={image} alt={imageAlt} className="w-full h-auto float-y" />
+          <div className={`relative rounded-[2rem] overflow-hidden ${styles.shadow}`}>
+            <img src={image} alt={imageAlt} className="w-full h-auto" />
           </div>
         </div>
       </div>
